@@ -1,0 +1,34 @@
+* {
+  box-sizing: border-box;
+}
+
+/*############# Container for main content on the page ###############*/
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+/*############# Profile image ########################*/
+img#profile-photo {
+    border-radius: 50%;
+    width: 3%;
+}
+
+
+/*############# SingUp Form ########################*/
+.singup-form {
+  display: block;
+}
+
+
+/*############# Contact Form ########################*/
+div#contact-form {
+    background-color:#F2F7F9;
+    width:465px;
+    padding:20px;
+    margin: 50px auto;
+    border: 6px solid #8FB5C1;
+    -moz-border-radius:15px;
+    -webkit-border-radius:15px;
+    border-radius:15px;
+    position:relative;
+}
