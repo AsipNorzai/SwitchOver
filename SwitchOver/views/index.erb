@@ -1,0 +1,8 @@
+<a href="/posts/new">New Post</a>
+
+<% @post.each do |post| %>
+<p>
+<img src="<%= post.image %>" alt="" />
+<h1><%= link post.heading, "/posts/#{post.id}" %></h1>
+</p>
+<% end %>

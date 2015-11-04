@@ -1,0 +1,27 @@
+<form action="/posts/<%= @post.id %>" method="post">
+  <input type="hidden" name="_method" value="put">
+
+    <label for="">Categories</label>
+    <input name="categories" type="text" value="<%= @post.categories %>">
+
+    <label for="">Title</label>
+    <input name="heading" type="text" value="<%= @post.heading %>">
+
+
+    <label for="">Want</label>
+    <input name="want" type="text" value="<%= @post.want %>">
+
+    <label for="">Give</label>
+    <input name="give" type="text" value="<%= @post.give %>">
+
+    <label for="">Info</label>
+    <textarea name="body" rows="3" cols="40" ><%= @post.body %></textarea>
+
+    <label for="">Image url</label>
+    <input name="image" type="text" value="<%= @post.image %>">
+
+    <label for="">avaliablity</label>
+    <input name="avaliablity" type="date" value="<%= @post.avaliablity %>">
+
+  <button>update dish</button>
+</form>

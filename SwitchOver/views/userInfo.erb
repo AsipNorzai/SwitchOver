@@ -1,0 +1,13 @@
+<div class="user-info">
+  <img src=" <%= current_user.image.nil? ? 'Not Provided' : current_user.image %> " alt="" />
+  <h2>First Name: <%= current_user.firstname %></h1>
+  <h2>Last Name: <%= current_user.lastname %></h1>
+  <h2>Email: <%= current_user.email %></h1>
+  <h2>Mobile: <%= current_user.mobile.nil? ? 'Not Provided' : current_user.mobile %> </h2>
+  <h2>Address: <%= current_user.address.nil? ? 'Not Provided' : current_user.address %> </h2>
+  <h2>Postcode: <%= current_user.postcode.nil? ? 'Not Provided' : current_user.postcode %> </h2>
+  <h2>Suburb: <%= current_user.suburb.nil? ? 'Not Provided' : current_user.suburb %> </h2>
+  <h2>State: <%= current_user.state.nil? ? 'Not Provided' : current_user.state %> </h2>
+
+  <a href="/<%= "#{current_user.firstname}#{current_user.lastname.downcase}" %>/edit">Edit User Info</a>
+</div>

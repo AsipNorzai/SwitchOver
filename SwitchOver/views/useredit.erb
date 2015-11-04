@@ -1,0 +1,24 @@
+<form class="user-edit" action="/useredit" method="post">
+  <input type="hidden" name="_method" value="put">
+
+  <label>First Name</label>
+  <input type="text" name="firstname" value="<%= current_user.firstname %>">
+  <label>Last Name</label>
+  <input type="text" name="lastname" value="<%= current_user.lastname %>">
+  <label for="">Email</label>
+  <input type="email" name="email" value="<%= current_user.email %>">
+  <label for="">Mobile</label>
+  <input type="tel" name="mobile" value="<%= current_user.mobile %>">
+  <label for="">Address</label>
+  <input type="text" name="address" value="<%= current_user.address %>">
+  <label for="">Postcode</label>
+  <input type="text" name="postcode" value="<%= current_user.postcode %>">
+  <label for="">Suburb</label>
+  <input type="text" name="suburb" value="<%= current_user.suburb %>">
+  <label for="">State</label>
+  <input type="text" name="state" value="<%= current_user.state %>">
+  <label for="">image</label>
+  <input type="text" name="image" value="<%= current_user.image %>">
+
+  <button>Save</button>
+</form>
