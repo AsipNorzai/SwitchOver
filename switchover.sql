@@ -14,8 +14,6 @@ CREATE TABLE users
   created_at TIMESTAMP,
   updated_at TIMESTAMP
 );
---
--- INSERT INTO users (firstName, lastName, mobile, email, password, address, postcode, suburb, state, image) VALUES ('Naimat', 'Noorzai', 0402792236, 'naimatnorzai@gmail.com', 'naimat123', '11 Sutherland Road', 3175, 'Dandenong', 'Victoria', 'https://s3.amazonaws.com/foodspotting-ec2/reviews/5622826/thumb_600.jpg?1445753652?1445831241');
 
 
 -- ALTER TABLE users ADD posts_id INTEGER;
@@ -36,5 +34,3 @@ CREATE TABLE posts
   created_at TIMESTAMP,
   updated_at TIMESTAMP
 );
-
--- INSERT INTO users (categories, heading, learn, teach, body, image, avaliablity) VALUES ('Music', 'Anayone avaliablity for guitar teaching?', 'Learn Guitar', 'Teach Piano' 'Hey I wan to learn Guitar and am from Dandenong. So anyone that want\'s to learn Piono can teach me guitar in return', 'http://maton.com.au/assets/images/acoustic_product_MINID_2.jpg');
