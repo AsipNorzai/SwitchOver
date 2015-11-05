@@ -3,6 +3,8 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'pg' #to connect postgress
 require 'postageapp'
+require 'will_paginate/active_record'
+require 'will_paginate-bootstrap'
 
 require_relative 'db_config'
 require_relative 'models/user'
@@ -36,7 +38,6 @@ helpers do
   PostageApp.configure do |config|
   config.api_key = '6CdcEWLcgKORh5p9Lceff7KkEFlIy3Ox'
   end
-
 end
 
 ################## closes the connection between DB and ActiveRecord ####################
@@ -46,7 +47,7 @@ end
 
 ################## shows all the posts currently in the DB #########################
 get '/' do
-  @post = Post.all
+  @posts = Post.paginate(:page => params[:page], :per_page => 2)
   erb :index
 end
 

@@ -1,3 +1,5 @@
+CREATE DATABASE switchover;
+
 CREATE TABLE users
 (
   id SERIAL4 PRIMARY KEY,
