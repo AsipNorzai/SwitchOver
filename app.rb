@@ -3,8 +3,8 @@ require 'sinatra'
 # require 'sinatra/reloader'
 require 'pg' #to connect postgress
 require 'postageapp'
-require 'will_paginate/active_record'
-require 'will_paginate-bootstrap'
+# require 'will_paginate/active_record'
+# require 'will_paginate-bootstrap'
 
 require_relative 'db_config'
 require_relative 'models/user'
@@ -47,7 +47,8 @@ end
 
 ################## shows all the posts currently in the DB #########################
 get '/' do
-  @posts = Post.paginate(:page => params[:page], :per_page => 2)
+  @posts = Post.all
+  # paginate(:page => params[:page], :per_page => 2)
   erb :index
 end
 

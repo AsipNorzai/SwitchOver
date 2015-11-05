@@ -7,4 +7,4 @@ gem 'sinatra'
 gem 'pg' #to connect postgress
 gem 'postageapp'
 gem 'activerecord'
-gem 'bcrypt'
+gem 'bcrypt-ruby'
