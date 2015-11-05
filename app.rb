@@ -1,6 +1,6 @@
-require 'pry'
+# require 'pry'
 require 'sinatra'
-require 'sinatra/reloader'
+# require 'sinatra/reloader'
 require 'pg' #to connect postgress
 require 'postageapp'
 require 'will_paginate/active_record'
