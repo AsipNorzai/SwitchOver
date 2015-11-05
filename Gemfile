@@ -8,3 +8,5 @@ gem 'pg' #to connect postgress
 gem 'postageapp'
 gem 'activerecord'
 gem 'bcrypt-ruby'
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'

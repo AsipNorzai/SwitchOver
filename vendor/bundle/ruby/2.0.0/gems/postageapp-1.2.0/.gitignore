@@ -1,0 +1,9 @@
+.DS_Store
+coverage
+rdoc
+pkg
+test/tmp
+test/log
+test/gemfiles/*.lock
+Gemfile.lock
+.ruby-version

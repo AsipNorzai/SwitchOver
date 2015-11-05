@@ -16,6 +16,8 @@ GEM
       tzinfo (~> 1.1)
     arel (6.0.3)
     bcrypt (3.1.10)
+    bcrypt-ruby (3.1.5)
+      bcrypt (>= 3.1.3)
     builder (3.2.2)
     i18n (0.7.0)
     json (1.8.3)
@@ -34,16 +36,21 @@ GEM
     tilt (2.0.1)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    will_paginate (3.0.7)
+    will_paginate-bootstrap (1.0.1)
+      will_paginate (>= 3.0.3)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   activerecord
-  bcrypt
+  bcrypt-ruby
   pg
   postageapp
   sinatra
+  will_paginate
+  will_paginate-bootstrap
 
 BUNDLED WITH
    1.10.6

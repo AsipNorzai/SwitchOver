@@ -1,0 +1,24 @@
+language: ruby
+before_install: gem install bundler
+rvm:
+  - 1.9.3-p551
+  - 2.0.0-p598
+  - 2.1.5
+  - 2.2.0
+gemfile:
+  - test/gemfiles/Gemfile.ruby
+  - test/gemfiles/Gemfile.rails-2.3.x
+  - test/gemfiles/Gemfile.rails-3.0.x
+  - test/gemfiles/Gemfile.rails-3.1.x
+  - test/gemfiles/Gemfile.rails-3.2.x
+  - test/gemfiles/Gemfile.rails-4.0.x
+  - test/gemfiles/Gemfile.rails-4.1.x
+  - test/gemfiles/Gemfile.rails-4.2.x
+matrix:
+  exclude:
+    - rvm: 2.0.0-p598
+      gemfile: test/gemfiles/Gemfile.rails-2.3.x
+    - rvm: 2.1.5
+      gemfile: test/gemfiles/Gemfile.rails-2.3.x
+    - rvm: 2.2.0
+      gemfile: test/gemfiles/Gemfile.rails-2.3.x

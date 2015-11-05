@@ -6,3 +6,4 @@
 <h1><%= link post.heading, "/posts/#{post.id}" %></h1>
 </p>
 <% end %>
+<%= will_paginate @posts, renderer: BootstrapPagination::Sinatra %>
