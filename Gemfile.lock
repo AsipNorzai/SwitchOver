@@ -47,7 +47,7 @@ DEPENDENCIES
   activerecord
   bcrypt-ruby
   pg
-  postageapp
+  postageapp (~> 1.0.24)
   sinatra
   will_paginate
   will_paginate-bootstrap

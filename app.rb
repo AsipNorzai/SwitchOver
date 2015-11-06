@@ -1,12 +1,12 @@
-# require 'pry'
+require 'pry'
 require 'sinatra'
-# require 'sinatra/reloader'
+require 'sinatra/reloader'
 require 'pg' #to connect postgress
-require 'postageapp'
 require 'will_paginate/active_record'
 require 'will_paginate-bootstrap'
 
 require_relative 'db_config'
+require 'postageapp'
 require_relative 'models/user'
 require_relative 'models/post'
 
@@ -143,16 +143,6 @@ post '/email/:id' do
 
   redirect to :"/posts/#{params[:id]}"
 end
-
-
-
-
-
-
-
-
-
-
 
 
 

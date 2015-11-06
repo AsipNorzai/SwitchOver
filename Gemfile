@@ -5,7 +5,7 @@ source "https://rubygems.org"
 
 gem 'sinatra'
 gem 'pg' #to connect postgress
-gem 'postageapp'
+gem 'postageapp', "~> 1.0.24"
 gem 'activerecord'
 gem 'bcrypt-ruby'
 gem 'will_paginate'
