@@ -1,0 +1,186 @@
+--
+-- PostgreSQL database dump
+--
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: -
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: posts; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE posts (
+    id integer NOT NULL,
+    categories character varying(100) NOT NULL,
+    heading character varying(200) NOT NULL,
+    want character varying(100),
+    give character varying(100),
+    body character varying(500) NOT NULL,
+    image character varying(500),
+    avaliablity date,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    user_id integer,
+    user_email character varying(100)
+);
+
+
+--
+-- Name: posts_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE posts_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: posts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE posts_id_seq OWNED BY posts.id;
+
+
+--
+-- Name: users; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE users (
+    id integer NOT NULL,
+    firstname character varying(100) NOT NULL,
+    lastname character varying(100) NOT NULL,
+    mobile character varying(50),
+    email character varying(100) NOT NULL,
+    password_digest character varying(100) NOT NULL,
+    address character varying(200),
+    postcode integer,
+    suburb character varying(100),
+    state character varying(100),
+    image character varying(500),
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    post_id integer
+);
+
+
+--
+-- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE users_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE users_id_seq OWNED BY users.id;
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY posts ALTER COLUMN id SET DEFAULT nextval('posts_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
+
+
+--
+-- Data for Name: posts; Type: TABLE DATA; Schema: public; Owner: -
+--
+
+COPY posts (id, categories, heading, want, give, body, image, avaliablity, created_at, updated_at, user_id, user_email) FROM stdin;
+1	Music	Want to learn guitar	\N	\N	Wants to learn Guitar and can teach Piano	http://maton.com.au/assets/images/acoustic_product_TE_3.jpg	\N	2015-11-03 07:11:40.230959	2015-11-03 07:11:40.230959	\N	\N
+3	Swimming	Want to learn to Swim	to learn Swimming		I want to learn to swim can teach you ski, mountine bike riding, rock climbing. \r\nContact me if you are keen to learn one of those skills in exchange for swimming lessons 	http://georgechalhoub.com/_include/img/profile/profile-01.jpg?id=1	2015-12-03	2015-11-03 23:24:33.973139	2015-11-04 00:12:45.078199	4	\N
+5	Painting	Want to learn Painting	to Learn Painting		I know how to make tables and chairs. If you teach me painting, I can teach you how to make cool products using wood. 	http://www.creativescoops.com/wp-content/uploads/2014/01/paintings-made-with-fingers-3.jpg	2016-12-12	2015-11-04 04:01:14.231107	2015-11-04 04:01:14.231107	3	\N
+6	Body	Body Building	to build body	build body	Hey is there anyone wanting to  build their body and learn the proper way at the same time? \r\nContact me if you are looking for someone to build your body. 	http://cms.bbcomcdn.com/fun/images/2008/arnold_friends_insights_b.jpg	2016-05-01	2015-11-04 10:46:53.387264	2015-11-04 12:40:19.30731	6	asifkhannoorzai@gmail.com
+8	Music	Want to learn Drumming			Want to learn Drumming and I will teach you  how to play saxophone. Check out my availability date. 	http://thedwarf.com.au/img/dave-grohl-picks-best-air-drumming-albums.jpg	2016-01-02	2015-11-04 12:56:52.076148	2015-11-04 12:56:52.076148	6	asifkhannoorzai@gmail.com
+2	Programmer	Can teach you Ruby if you teach me C	to learn C	to teach Ruby	Learn Ruby\r\nCan Teach you Ruby if you can teach me C.\r\nCheck out the time I'm available  1	http://blog.x-aeon.com/wp-content/uploads/2012/12/RubyC-465x198.png	2015-11-25	2015-11-03 09:08:28.286591	2015-11-04 13:35:49.762492	\N	\N
+\.
+
+
+--
+-- Name: posts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+--
+
+SELECT pg_catalog.setval('posts_id_seq', 9, true);
+
+
+--
+-- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: -
+--
+
+COPY users (id, firstname, lastname, mobile, email, password_digest, address, postcode, suburb, state, image, created_at, updated_at, post_id) FROM stdin;
+2	Asep	Norzai	\N	asif@gmail.com	$2a$10$hrhRySALSzD3Zgq6svoLJ.jxaA.RBEjDsm4G3dBLi0aAR.MMT0XJW	\N	\N	\N	\N	\N	2015-11-03 06:46:39.58311	2015-11-03 06:46:39.58311	\N
+4	Azad	Noorzai	\N	azad@gmail.com	$2a$10$ZO5lSj5vqtMBO4hFj.dwb.0hxK42gWZVDvYIl3Za4GJVWQYoJC4NG	\N	\N	\N	\N	\N	2015-11-03 08:24:17.348917	2015-11-03 08:24:17.348917	\N
+5	Ismat	Norzai	\N	ismat@gmail.com	$2a$10$fokF9/tE29TRpAzEsu4r3.2QVOEVH8ycoI1CmJH1ABvf93ydG0r1e	\N	\N	\N	\N	\N	2015-11-03 08:27:30.552444	2015-11-03 08:27:30.552444	\N
+3	Naimat	Noorzai		naimat@gmail.com	$2a$10$HN9O/nVlN.IcPIYCNNUUOevwP0HxsoXUcMkpy8zrdrDgRiVJq0wVS		\N			http://www.wilsonstreetkinder.com.au/wp-content/uploads/2013/01/Techlove-facebook.png	2015-11-03 07:26:27.169584	2015-11-04 22:29:18.111818	\N
+6	Asep	Norzai	+61402792236	asifkhannoorzai@gmail.com	$2a$10$.CdnIjhYw5tLSlyX8I/6fubj9SkwGY1QDDpHxkhPCp4h1dcFTINZu	15 Ray St	3175	Dandenong	Victoria	http://cryptorials.io/wp-content/uploads/2015/05/anonymous.jpg	2015-11-04 06:07:32.280607	2015-11-05 04:06:44.627509	\N
+\.
+
+
+--
+-- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+--
+
+SELECT pg_catalog.setval('users_id_seq', 6, true);
+
+
+--
+-- Name: posts_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY posts
+    ADD CONSTRAINT posts_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY users
+    ADD CONSTRAINT users_pkey PRIMARY KEY (id);
+
+
+--
+-- PostgreSQL database dump complete
+--
+
