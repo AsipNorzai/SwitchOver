@@ -3,7 +3,7 @@
     <form action="/posts/<%= @post.id %>" method="post">
       <div class="form-group">
       <input type="hidden" name="_method" value="put">
-
+    </div>
      <div class="form-group">
         <label class="col-sm-2 control-label" for="">Categories</label>
         <input class="form-control name="categories" type="text" value="<%= @post.categories   %>">
@@ -21,7 +21,7 @@
 
     <div class="form-group">
         <label class="col-sm-2 control-label" for="">Give</label>
-        <input class="form-control name="give" type="text" value="<%= @post.give %>">
+        <input class="form-control name="give" type="text" value=<%= @post.give %>>
       </div>
 
       <div class="form-group">
@@ -30,9 +30,10 @@
       </div>
 
     <div class="form-group">
-        <label class="col-sm-2 control-label" for="">Image url</label>
-        <input class="form-control name="image" type="text" value="<%= @post.image %>">
+        <label class="col-sm-2 control-label">Image url</label>
+        <input class="form-control" name="image" type="text" value=<%= @post.image %>>
     </div>
+
     <div class="form-group">
         <label class="col-sm-2 control-label" for="">avaliablity</label>
         <input  class="form-control" name="avaliablity" type="date" value="<%= @post.avaliablity %>">
