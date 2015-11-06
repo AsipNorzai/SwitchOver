@@ -1,13 +1,31 @@
 <form class="singup-form" action="/session" method="post">
   <input type="hidden" name="_method" value="put">
-
+<div class="form-group">
   <label>First Name</label>
-  <input type="text" name="firstname">
+  <div class="col-sm-10">
+    <input type="text" name="firstname">
+  </div>
+</div>
+
+  <div class="form-group">
   <label>Last Name</label>
-  <input type="text" name="lastname">
-  <label for="">Email</label>
-  <input type="text" name="email">
+  <div class="col-sm-10">
+    <input type="text" name="lastname">
+  </div>
+</div>
+
+<div class="form-group">
+    <label for="">Email</label>
+  <div class="col-sm-10">
+    <input type="text" name="email">
+  </div>
+</div>
+
+<div class="form-group">
   <label for="">Password</label>
-  <input type="password" name="password">
+  <div class="col-sm-10">
+    <input type="password" name="password">
+  </div>
+</div>
   <button>Sign Up</button>
 </form>

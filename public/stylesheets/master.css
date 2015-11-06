@@ -10,28 +10,26 @@
 /*############# Profile image ########################*/
 img#profile-photo {
    border-radius: 16%;
-  width: 82px;
+    width: 46px;
   padding-top: 5px;
 }
 
+.navbar {
+   border-radius: 0;
+   padding-top: 3px;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6, p {
+    font-family: Hack;
+}
+
+.col-md-11.col-sm-9.col-xs-9 h3 {
+    color: skyblue;
+}
 
 /*############# SingUp Form ########################*/
 /*.singup-form {
   display: block;
-}*/
-
-
-/*############# Contact Form ########################*/
-/*div#contact-form {
-    background-color:#F2F7F9;
-    width:465px;
-    padding:20px;
-    margin: 50px auto;
-    border: 6px solid #8FB5C1;
-    -moz-border-radius:15px;
-    -webkit-border-radius:15px;
-    border-radius:15px;
-    position:relative;
 }*/
 
 /*.row {

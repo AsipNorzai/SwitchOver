@@ -14,28 +14,66 @@
     <link rel="stylesheet" href="/stylesheets/master.css" media="screen" title="no title" charset="utf-8">
  	</head>
  	<body>
-<header>
-  <a href="<%= '/' %>"><h1>SwitchOver</h1></a>
-</header>
-  <% if logged_in? %>
-  <img id="profile-photo" src="<%= current_user.image %>" alt="" />
-  <a href="/<%= current_user.firstname + current_user.lastname.downcase%>"><h3><%= current_user.firstname %></h3></a>
-  <form class="" action="/session" method="post">
-    <input type="hidden" name="_method" value="delete">
-    <button>LogOut</button>
-  </form>
-  <% else %>
-  <form class="" action="/session" method="get">
-  <button>Login</button>
-  </form>
-  <form action="/signup">
-    <button>SingUp</button>
-  </form>
-  <% end %>
-<div class="container">
 
+<div class="container-fluid">
+<div class="row">
+  <nav class="navbar navbar-inverse">
+    <div class="navbar-header">
+  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="navbar-brand"
+    href="/">SwitchOVER</a>
+</div>
+<ul class="nav navbar-nav">
+  <li><a href="/">Home</a></li>
+  <li><a href="#">About</a></li>
+  <li><a href="#">Contact</a></li>
+</ul>
+  <ul class="nav navbar-nav navbar-right">
+  <% if logged_in? %>
+  <div class="dropdown">
+    <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-default dropdown-toggle"  data-toggle="tooltip" data-placement="left" title="" data-original-title="Edit Profile Or Logout"><img id="profile-photo" src="<%= current_user.image %>" alt="" /> <span class="caret"></span>
+    </button>
+     </a>
+
+  <ul class="nav navbar-nav navbar-right dropdown-menu" aria-labelledby="dLabel">
+    <li>
+      <a href="/<%= current_user.firstname + current_user.lastname.downcase%>">Profile</a>
+    </li>
+    <li>
+    <form class="" action="/session" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <button class="btn btn-danger">Logout</button>
+    </form>
+  </li>
+  </div>
+  <% else %>
+      <li>
+        <form class="" action="/session" method="get">
+        <button class="btn btn-info">Sign in</button>
+    </form>
+    </li>
+
+    <li>
+      <form action="/signup">
+        <button class="btn btn-info">SingUp</button>
+    </form>
+    </li>
+  <% end %>
+</ul>
+</div>
+</div>
+</nav>
+</div>
+<a href="/posts/new"><button class="btn btn-success right">New     Post</button></a>
+<div class="container">
     <%= yield %>
 
 </div>
+
  	</body>
  </html>

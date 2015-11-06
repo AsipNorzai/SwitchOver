@@ -1,34 +1,57 @@
-<h1><%= @post.heading %></h1>
-<img src="<%= @post.image %>" alt="" />
-<p>
-  <%= @post.body %>
-</p>
+<div class="container">
+<div class="row">
+  <div class="col-md-8 col-md-push-3">
+    <img class="img-responsive" src="<%= @post.image %>" alt="" />
+  </div>
+
+  <div class="col-md-4 col-md-pull-10">
+    <h1><%= @post.heading %></h1>
+    <p>
+      <%= @post.body %>
+    </p>
 
 <% if logged_in? && able_edit?(@post.id, @post.user_email) %>
-<a href="/posts/<%= @post.id %>/edit">edit</a>
+    <a href="/posts/<%= @post.id %>/edit"><button class="btn btn-warning navbar-btn">edit</button></a>
 
-<form action="/posts/<%= @post.id %>" method="post">
-  <input type="hidden" name="_method" value="delete">
-  <button>delete</button>
-</form>
+    <form action="/posts/<%= @post.id %>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <button class="btn btn-danger navbar-btn">delete</button>
+    </form>
+
+  </div>
+</div>
 <% end %>
 
-<div id="contact-form" class="clearfix">
-    <h2>Contact em!</h2>
-    <form method="post" action="/email/<%= @post.id %>">
+    <h2>Contact Me </h2>
+    <form method="post" class="form-horizontal" action="/email/<%= @post.id %>">
+    <div class="form-group">
+      <div class="form-group">
+        <label  class=" col-sm-2 control-label">From</label>
+        <div class="col-sm-10">
+        <input class="form-control" type="email" name="from_email" value="" placeholder="johndoe@example.com" required="required" />
+      </div>
+      </div>
 
-        <label for="email">From: <span class="required">*</span></label>
-        <input type="email" id="email" name="from_email" value="" placeholder="johndoe@example.com" required="required" />
+      <div class="form-group">
+        <label  class="col-sm-2 control-label">Title</label>
+        <div class="col-sm-10">
+        <input class="form-control" type="text" name="heading" value=<%= @post.heading %> />
+      </div>
+      </div>
 
+      <div class="form-group">
+        <label class=" col-sm-2 control-label" for="message">Message</label>
+        <div class="col-sm-10">
+        <textarea class="form-control" name="body" data-minlength="20"></textarea>
+      </div>
+      </div>
 
-        <label>Title</label>
-        <input type="text" name="heading" value=<%= @post.heading %> />
-
-
-        <label for="message">Message: <span class="required">*</span></label>
-        <textarea id="message" name="body" required="required" data-minlength="20"></textarea>
-
-        <button>Submit</button>
-        <p id="req-field-desc"><span class="required">*</span> indicates a required field</p>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button class="btn btn-success">Submit</button>
+      </div>
+    </div>
     </form>
+</div>
+
 </div>

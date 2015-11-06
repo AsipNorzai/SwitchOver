@@ -1,27 +1,44 @@
-<form action="/posts/<%= @post.id %>" method="post">
-  <input type="hidden" name="_method" value="put">
+<div class="container">
+  <div class="form-group">
+    <form action="/posts/<%= @post.id %>" method="post">
+      <div class="form-group">
+      <input type="hidden" name="_method" value="put">
 
-    <label for="">Categories</label>
-    <input name="categories" type="text" value="<%= @post.categories %>">
+     <div class="form-group">
+        <label class="col-sm-2 control-label" for="">Categories</label>
+        <input class="form-control name="categories" type="text" value="<%= @post.categories   %>">
+      </div>
 
-    <label for="">Title</label>
-    <input name="heading" type="text" value="<%= @post.heading %>">
+       <div class="form-group">
+        <label class="col-sm-2 control-label" for="">Title</label>
+        <input class="form-control name="heading" type="text" value="<%= @post.heading %>">
+      </div>
 
+    <div class="form-group">
+        <label class="col-sm-2 control-label" for="">Want</label>
+        <input class="form-control name="want" type="text" value="<%= @post.want %>">
+    </div>
 
-    <label for="">Want</label>
-    <input name="want" type="text" value="<%= @post.want %>">
+    <div class="form-group">
+        <label class="col-sm-2 control-label" for="">Give</label>
+        <input class="form-control name="give" type="text" value="<%= @post.give %>">
+      </div>
 
-    <label for="">Give</label>
-    <input name="give" type="text" value="<%= @post.give %>">
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="">Info</label>
+        <textarea class="form-control name="body" rows="3" cols="40" ><%= @post.body %></textarea>
+      </div>
 
-    <label for="">Info</label>
-    <textarea name="body" rows="3" cols="40" ><%= @post.body %></textarea>
-
-    <label for="">Image url</label>
-    <input name="image" type="text" value="<%= @post.image %>">
-
-    <label for="">avaliablity</label>
-    <input name="avaliablity" type="date" value="<%= @post.avaliablity %>">
-
-  <button>update dish</button>
-</form>
+    <div class="form-group">
+        <label class="col-sm-2 control-label" for="">Image url</label>
+        <input class="form-control name="image" type="text" value="<%= @post.image %>">
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label" for="">avaliablity</label>
+        <input  class="form-control" name="avaliablity" type="date" value="<%= @post.avaliablity %>">
+    </div>
+      <button class="btn btn-success navbar-btn">update dish</button>
+    </div>
+    </form>
+  </div>
+</div>
