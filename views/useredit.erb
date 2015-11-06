@@ -4,50 +4,70 @@
 
       <input type="hidden" name="_method" value="put">
     <div class="form-group">
-      <label>First Name</label>
+      <label  class=" col-sm-2 control-label">First Name</label>
+      <div class="col-sm-10">
       <input type="text" name="firstname" value="<%= current_user.firstname %>">
     </div>
+    </div>
 
      <div class="form-group">
-      <label>Last Name</label>
+      <label  class=" col-sm-2 control-label">Last Name</label>
+      <div class="col-sm-10">
+      <div class="col-sm-10">
       <input type="text" name="lastname" value="<%= current_user.lastname %>">
     </div>
+    </div>
+    </div>
 
      <div class="form-group">
-      <label for="">Email</label>
+      <label  class=" col-sm-2 control-label" for="">Email</label>
+      <div class="col-sm-10">
       <input type="email" name="email" value="<%= current_user.email %>">
     </div>
+    </div>
 
      <div class="form-group">
-      <label for="">Mobile</label>
+      <label  class=" col-sm-2 control-label" for="">Mobile</label>
+      <div class="col-sm-10">
       <input type="tel" name="mobile" value="<%= current_user.mobile %>">
     </div>
+    </div>
 
      <div class="form-group">
-      <label for="">Address</label>
+      <label  class=" col-sm-2 control-label" for="">Address</label>
+      <div class="col-sm-10">
       <input type="text" name="address" value="<%= current_user.address %>">
     </div>
+    </div>
 
      <div class="form-group">
-      <label for="">Postcode</label>
+      <label  class=" col-sm-2 control-label" for="">Postcode</label>
+      <div class="col-sm-10">
       <input type="text" name="postcode" value="<%= current_user.postcode %>">
     </div>
-
-     <div class="form-group">
-      <label for="">Suburb</label>
-      <input type="text" name="suburb" value="<%= current_user.suburb %>">
     </div>
 
      <div class="form-group">
-      <label for="">State</label>
+      <label  class=" col-sm-2 control-label" for="">Suburb</label>
+      <div class="col-sm-10">
+      <input type="text" name="suburb" value="<%= current_user.suburb %>">
+    </div>
+    </div>
+
+     <div class="form-group">
+      <label  class=" col-sm-2 control-label" for="">State</label>
+      <div class="col-sm-10">
       <input type="text" name="state" value="<%= current_user.state %>">
+    </div>
     </div>
 
    <div class="form-group">
-      <label for="">image</label>
+      <label  class=" col-sm-2 control-label" for="">image</label>
+      <div class="col-sm-10">
       <input type="text" name="image" value="<%= current_user.image %>">
     </div>
-    
+    </div>
+
       <button class="btn btn-success">Save</button>
     </form>
 </div>
