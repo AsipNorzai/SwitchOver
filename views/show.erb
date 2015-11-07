@@ -1,13 +1,17 @@
 <div class="row">
-  <div class="col-md-8 col-md-push-3">
-    <img class="img-responsive" src="<%= @post.image %>" alt="" />
+  <div class="col-md-8 col-md-push-6 show-img">
+    <img class="img-responsive img-thumbnail" src="<%= @post.image %>" alt="" />
   </div>
 
-  <div class="col-md-4 col-md-pull-10">
+  <div class="col-md-4 col-md-pull-6">
     <h1><%= @post.heading %></h1>
-    <p>
-      <%= @post.body %>
-    </p>
+      <h4>Want: <%= @post.want %></h4>
+      <h4>Give: <%= @post.give %></h4>
+      <h4>Info:<br /> <span class="tab"><%= @post.body %> <span class="tab"></span></h4>
+      <h4>avaliablity: <%= @post.avaliablity %></h4>
+      <h6>Updated At: <%= @post.updated_at %></h6>
+      <hr>
+    <!-- <h4>avaliablity:</h4> -->
 
 <% if logged_in? && able_edit?(@post.id, @post.user_email) %>
     <a href="/posts/<%= @post.id %>/edit"><button class="btn btn-warning navbar-btn">edit</button></a>
@@ -20,19 +24,19 @@
   </div>
 </div>
 <% end %>
-
+<div class="fixed">
     <h2>Contact Me </h2>
     <form method="post" class="form-horizontal" action="/email/<%= @post.id %>">
       <div class="form-group">
         <label  class=" col-sm-2 control-label">From</label>
         <div class="col-sm-10">
-        <input class="form-control" type="email" name="from_email" value="" placeholder="johndoe@example.com" required="required" />
+        <input class="form-control" type="email" name="from_email" placeholder="johndoe@example.com" required="required" />
       </div>
     </div>
       <div class="form-group">
         <label  class="col-sm-2 control-label">Title</label>
         <div class="col-sm-10">
-        <input class="form-control" type="text" name="heading" value=<%= @post.heading %> />
+        <input class="form-control" type="text" name="heading"/>
       </div>
       </div>
 
@@ -42,6 +46,8 @@
         <textarea class="form-control" name="body" data-minlength="20"></textarea>
       </div>
       </div>
+</div>
+
 
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
