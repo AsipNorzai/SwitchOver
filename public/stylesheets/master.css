@@ -7,11 +7,22 @@
   width: 80%;
   margin: 0 auto;
 }*/
+
+
+
+/*##############Logo ##################################*/
+
 /*############# Profile image ########################*/
 img#profile-photo {
    border-radius: 16%;
     width: 46px;
   padding-top: 5px;
+}
+
+html, body. div{
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
 }
 
 .navbar {
@@ -27,6 +38,21 @@ img#profile-photo {
     color: skyblue;
 }
 
+.index-img {
+      width: 80px;
+}
+
+.show-img {
+  width:60%;
+}
+
+span.tab{
+    padding: 18px; /* Or desired space*/
+}
+
+.new-post {
+  margin-bottom: 20px;
+}
 /*############# SingUp Form ########################*/
 /*.singup-form {
   display: block;
