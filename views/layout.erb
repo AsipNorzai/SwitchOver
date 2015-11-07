@@ -3,7 +3,7 @@
  	<head>
  		<meta charset="utf-8">
  		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=320, height=device-height, target-densitydpi=medium-dpi" />
  		<title>Swtich Over</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
@@ -16,65 +16,61 @@
  	</head>
  	<body>
 
-<div class="container-fluid">
-<div class="row">
-  <nav class="navbar navbar-inverse">
-    <div class="navbar-header">
-  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-    <span class="sr-only">Toggle navigation</span>
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
-  </button>
-  <a class="navbar-brand"
-    href="/">SwitchOVER</a>
-</div>
-<ul class="nav navbar-nav">
-  <li><a href="/">Home</a></li>
-  <li><a href="#">About</a></li>
-  <li><a href="#">Contact</a></li>
-</ul>
-  <ul class="nav navbar-nav navbar-right">
-  <% if logged_in? %>
-  <div class="dropdown">
-    <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-default dropdown-toggle"  data-toggle="tooltip" data-placement="left" title="" data-original-title="Edit Profile Or Logout"><img id="profile-photo" src="<%= current_user.image %>" alt="" /> <span class="caret"></span>
-    </button>
-     </a>
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="navbar navbar-inverse">
+          <a class="navbar-brand" href="/">SwitchOVER</a>
+            <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="/">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+          <% if logged_in? %>
+              <div class="dropdown">
+                <button data-toggle="dropdown" class="dropdown-toggle btn btn-default"><img id="profile-photo" src="<%= current_user.image %>" alt="" /> <span class="caret"></span>
+                </button>
 
-  <ul class="nav navbar-nav navbar-right dropdown-menu" aria-labelledby="dLabel">
-    <li>
-      <a href="/<%= current_user.firstname + current_user.lastname.downcase%>">Profile</a>
-    </li>
-    <li>
-    <form class="" action="/session" method="post">
-      <input type="hidden" name="_method" value="delete">
-      <button class="btn btn-danger">Logout</button>
-    </form>
-  </li>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider dLabel">
+                  <li>
+                    <a href="/<%= current_user.firstname + current_user.lastname.downcase%>">Profile</a>
+                  </li>
+                  <li role="separator" class="divider"></li>
+                  <li>
+                    <form class="" action="/session" method="post">
+                      <input type="hidden" name="_method" value="delete">
+                      <button class="btn btn-danger">Logout</button>
+                    </form>
+                  </li>
+              <% else %>
+                    <div class="col-md-1">
+                        <form class="" action="/session" method="get">
+                        <button class="btn btn-info">Sign in</button>
+                        </form>
+
+                        <form action="/signup" method="get">
+                        <button class="btn btn-info">SignUp</button>
+                        </form>
+                  </div>
+              <% end %>
+                </ul>
+              </div>
+          </div>
+        </nav>
+      </div>
+      <div class="col-md-11 new-post">
+        <a href="/posts/new"><button class="btn btn-success navbar-right">New Post</button></a>
+      </div>
+      <div class="container">
+          <%= yield %>
+      </div>
   </div>
-  <% else %>
-      <li>
-        <form class="" action="/session" method="get">
-        <button class="btn btn-info">Sign in</button>
-    </form>
-    </li>
-
-    <li>
-      <form action="/signup">
-        <button class="btn btn-info">SingUp</button>
-    </form>
-    </li>
-  <% end %>
-</ul>
-</div>
-</div>
-</nav>
-</div>
-<a href="/posts/new"><button class="btn btn-success right">New     Post</button></a>
-<div class="container">
-    <%= yield %>
-
-</div>
-
  	</body>
  </html>
