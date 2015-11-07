@@ -53,6 +53,11 @@ span.tab{
 .new-post {
   margin-bottom: 20px;
 }
+
+.show-textbox {
+  border-right: solid 1px #dadada;
+  margin-bottom: 100px;
+}
 /*############# SingUp Form ########################*/
 /*.singup-form {
   display: block;
