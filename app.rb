@@ -4,9 +4,9 @@ require 'sinatra'
 require 'pg' #to connect postgress
 require 'will_paginate/active_record'
 require 'will_paginate-bootstrap'
+require 'sendgrid-ruby'
 
 require_relative 'db_config'
-require 'sendgrid-ruby'
 require_relative 'models/user'
 require_relative 'models/post'
 
