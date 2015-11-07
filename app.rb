@@ -1,12 +1,12 @@
-# require 'pry'
+require 'pry'
 require 'sinatra'
-# require 'sinatra/reloader'
+require 'sinatra/reloader'
 require 'pg' #to connect postgress
 require 'will_paginate/active_record'
 require 'will_paginate-bootstrap'
 
 require_relative 'db_config'
-require 'postageapp'
+require 'sendgrid-ruby'
 require_relative 'models/user'
 require_relative 'models/post'
 
@@ -33,10 +33,6 @@ helpers do
 
   def logged_in?
     !!current_user
-  end
-
-  PostageApp.configure do |config|
-  config.api_key = '6CdcEWLcgKORh5p9Lceff7KkEFlIy3Ox'
   end
 end
 
@@ -123,23 +119,14 @@ post '/email/:id' do
   # post = Post.all
   # binding.pry
   post = Post.find(params[:id])
-
-  request = PostageApp::Request.new(
-    :send_message,
-    {
-      headers: {
-        from: "#{params[:from_email]}",
-        subject: "#{params[:heading]}"
-      },
-      recipients: "#{post.user.email}",
-      content: {
-        'text/plain' => "#{params[:body]}",
-        # 'text/html' => 'html email content'
-      }
-    }
-  )
-
-  response = request.send
+  client = SendGrid::Client.new(api_user: user_name, api_key: password)
+  email = SendGrid::Mail.new do |m|
+  m.to      = "#{post.user.email}"
+  m.from    = "#{params[:from_email]}"
+  m.subject = "#{params[:heading]}"
+  m.html    = "#{params[:body]}"
+end
+  client.send(email)
 
   redirect to :"/posts/#{params[:id]}"
 end
