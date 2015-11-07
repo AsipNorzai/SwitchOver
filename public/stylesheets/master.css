@@ -14,9 +14,9 @@
 
 /*############# Profile image ########################*/
 img#profile-photo {
-   border-radius: 16%;
-    width: 46px;
+  border-radius: 16%;
   padding-top: 5px;
+  width: 28px;
 }
 
 html, body. div{
@@ -58,6 +58,7 @@ span.tab{
   border-right: solid 1px #dadada;
   margin-bottom: 100px;
 }
+
 /*############# SingUp Form ########################*/
 /*.singup-form {
   display: block;
