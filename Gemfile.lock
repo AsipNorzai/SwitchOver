@@ -28,6 +28,8 @@ GEM
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
+    sendgrid (1.2.0)
+      json
     sinatra (1.4.6)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -48,6 +50,7 @@ DEPENDENCIES
   bcrypt-ruby
   pg
   postageapp (~> 1.0.24)
+  sendgrid
   sinatra
   will_paginate
   will_paginate-bootstrap
