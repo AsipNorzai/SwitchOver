@@ -119,7 +119,7 @@ post '/email/:id' do
   # post = Post.all
   # binding.pry
   post = Post.find(params[:id])
-  client = SendGrid::Client.new(api_user: 'asifkhannorzai', api_key: 'Asif0006')
+  client = SendGrid::Client.new(api_user: 'user_name', api_key: 'password')
   email = SendGrid::Mail.new do |m|
   m.to      = "#{post.user.email}"
   m.from    = "#{params[:from_email]}"
