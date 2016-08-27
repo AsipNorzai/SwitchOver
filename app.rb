@@ -6,8 +6,8 @@ require 'will_paginate/active_record'
 require 'will_paginate-bootstrap'
 require 'dotenv'
 require 'sendgrid-ruby'
-Dotenv.load
 include SendGrid
+Dotenv.load
 
 require_relative 'db_config'
 require_relative 'models/user'
@@ -15,7 +15,7 @@ require_relative 'models/post'
 
 #################### sessions enabler to used in current_user method #######################
 enable :sessions
-
+set :session_secret, '*&(^B234'
 ########################### helpers methods for checking login and link creation ############
 helpers do
 
@@ -126,13 +126,14 @@ post '/email/:id' do
   # post = Post.all
   # binding.pry
   post = Post.find(params[:id])
+
   from = Email.new(email: params[:from_email])
   subject = params[:heading]
   to = Email.new(email: post.user.email)
   content = Content.new(type: 'text/plain', value: params[:body])
   mail = Mail.new(from, subject, to, content)
 
-  sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
+  sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'], host: 'https://api.sendgrid.com')
   response = sg.client.mail._('send').post(request_body: mail.to_json)
   puts response.status_code
   puts response.body
