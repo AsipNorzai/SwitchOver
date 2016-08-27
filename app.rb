@@ -1,10 +1,11 @@
-# require 'pry'
+require 'pry'
 require 'sinatra'
-# require 'sinatra/reloader'
+require 'sinatra/reloader'
 require 'pg' #to connect postgress
 require 'will_paginate/active_record'
 require 'will_paginate-bootstrap'
 require 'sendgrid-ruby'
+include SendGrid
 
 require_relative 'db_config'
 require_relative 'models/user'
@@ -43,8 +44,12 @@ end
 
 ################## shows all the posts currently in the DB #########################
 get '/' do
-  @posts = Post.paginate(:page => params[:page], :per_page => 2)
+  @posts = Post.order('created_at DESC').page(params[:page]).per_page(4)
   erb :index
+end
+
+get '/about' do
+  erb :about
 end
 
 ############## goes to the new page where form is located for creating a new post###########
@@ -119,16 +124,19 @@ post '/email/:id' do
   # post = Post.all
   # binding.pry
   post = Post.find(params[:id])
-  client = SendGrid::Client.new(api_user: 'user_name', api_key: 'password')
-  email = SendGrid::Mail.new do |m|
-  m.to      = "#{post.user.email}"
-  m.from    = "#{params[:from_email]}"
-  m.subject = "#{params[:heading]}"
-  m.html    = "#{params[:body]}"
-end
-  client.send(email)
+  from = Email.new(email: params[:from_email])
+  subject = params[:heading]
+  to = Email.new(email: post.user.email)
+  content = Content.new(type: 'text/plain', value: params[:body])
+  mail = Mail.new(from, subject, to, content)
 
-  redirect to :"/posts/#{params[:id]}"
+  sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
+  response = sg.client.mail._('send').post(request_body: mail.to_json)
+  puts response.status_code
+  puts response.body
+  puts response.headers
+
+  redirect to "/posts/#{params[:id]}"
 end
 
 

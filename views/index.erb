@@ -1,14 +1,19 @@
 <div class="container">
-  <% @posts.each do |post| %>
-  <br>
-  <p>
-  <div class="media-left">
-  <img class="img-responsive index-img img-rounded" src="<%= post.image %>" alt="" />
-  </div>
-  <h1 class="media-right"><%= link post.heading, "/posts/#{post.id}" %></h1>
-  <h4>Created At: <%= post.created_at %></h4>
-    <hr>
-  </p>
-<% end %>
-  <%= will_paginate @posts, renderer: BootstrapPagination::Sinatra %>
+  <section class="row">
+    <h2 class="col-md-2">Recent: </h2>
+  </section>
+  <section class="row">
+    <section class="col-md-offset-2">
+      <% @posts.each do |post| %>
+      <br>
+      <div class="media-left">
+        <img class="img-responsive index-img img-rounded" src="<%= post.image %>" alt="" />
+      </div>
+      <h1 class="media-right"><%= link post.heading, "/posts/#{post.id}" %></h1>
+      <h4>Created At: <%= post.created_at %></h4>
+      <hr>
+      <% end %>
+      <%= will_paginate @posts, renderer: BootstrapPagination::Sinatra %>
+    </section>
+  </section>
 </div>

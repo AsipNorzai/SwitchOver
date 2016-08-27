@@ -8,18 +8,15 @@
   margin: 0 auto;
 }*/
 
-
-
-/*##############Logo ##################################*/
-
-/*############# Profile image ########################*/
-img#profile-photo {
-  border-radius: 16%;
-  padding-top: 5px;
-  width: 28px;
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+html, body {
+    height: 100%;
 }
 
-html, body. div{
+html, body {
     margin: 0 !important;
     padding: 0 !important;
     width: 100%;
@@ -28,6 +25,10 @@ html, body. div{
 .navbar {
    border-radius: 0;
    padding-top: 3px;
+}
+
+.sign-out {
+  margin-left: 1rem;
 }
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6, p {
@@ -40,6 +41,13 @@ html, body. div{
 
 .index-img {
       width: 80px;
+}
+
+/*############# Profile image ########################*/
+img#profile-photo {
+  border-radius: 16%;
+  padding-top: 5px;
+  width: 28px;
 }
 
 .show-img {
@@ -59,6 +67,18 @@ span.tab{
   margin-bottom: 100px;
 }
 
+
+
+/*************************************ABOUT PAGE**********************************/
+.banner img {
+  width: 70%;
+}
+.about-page img {
+  width: 80%;
+  box-shadow: 0px 0 2px 1px black;
+  margin-bottom: 1rem;
+}
+
 /*############# SingUp Form ########################*/
 /*.singup-form {
   display: block;
@@ -67,3 +87,33 @@ span.tab{
 /*.row {
   border: 2px solid grey;
 }*/
+
+
+/*************************************FOOTER**********************************/
+footer {
+  background-color: black;
+  color: white;
+  margin: 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 30px;
+  left: 0;
+}
+
+footer section {
+  text-align: center;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+  font-size: 2rem;
+  padding-left: 1rem;
+  transition: color 0.3s;
+}
+
+footer a:hover {
+  text-decoration: none;
+  color: gray;
+}

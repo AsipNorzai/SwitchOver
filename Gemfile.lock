@@ -54,6 +54,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
+  bcrypt
   bcrypt-ruby
   pg
   postageapp (~> 1.0.24)
@@ -63,4 +64,4 @@ DEPENDENCIES
   will_paginate-bootstrap
 
 BUNDLED WITH
-   1.10.6
+   1.11.2
